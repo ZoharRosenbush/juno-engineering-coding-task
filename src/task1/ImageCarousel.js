@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs"
 import Spinner200 from "../svgs/Spinner200.svg"
 
-import { fetchImageUrls } from "../api/index";
-
 const ImageCarousel = ({ imgs }) => {
     const [currImgIdx, setImg] = useState(0)
     const imgsLength = imgs?.length
