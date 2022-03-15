@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+.img-carousel{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.img-container{
+  height: 400px;
+  width: 400px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.rigth-arrow{
+  position: absolute;
+  top: 50%;
+  right: 150px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.left-arrow{
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+}
+
+
