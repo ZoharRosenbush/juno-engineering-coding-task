@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs"
+import Spinner200 from "../svgs/Spinner200.svg"
 
 import { fetchImageUrls } from "../api/index";
 
@@ -23,7 +24,8 @@ const ImageCarousel = ({ imgs }) => {
         <BsFillArrowLeftCircleFill className="left-arrow" onClick={prevImg} />
         <BsFillArrowRightCircleFill className="rigth-arrow" onClick={nextImg} />
         <div className="img-container">
-            <img src={imgs[currImgIdx]} alt="loading img" />
+            {!imgsLength && <img src={Spinner200} alt='Loading...' />}
+            {imgsLength && <img src={imgs[currImgIdx]} alt="loading img" />}
         </div>
     </section>
 };
