@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ImgsNotFound from "../svgs/ImgsNotFound.svg"
-import Spinner200 from "../svgs/Spinner200.svg"
 import './App.css';
 import ImageCarousel from "./ImageCarousel";
-import { fetchImages } from "../api/index.js"
+import { fetchImages } from "../api"
 
 function App() {
 
