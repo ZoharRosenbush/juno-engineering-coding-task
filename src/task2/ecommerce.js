@@ -17,7 +17,7 @@ export const fetchAllOrders = () => {
 
 export const bucketOrdersByUsers = async () => {
 
-    let ordersByUsers = {};
+    const ordersByUsers = {};
     const allOrders = await fetchAllOrders()
     allOrders.forEach((order) => {
         ordersByUsers[order.userId] = !ordersByUsers[order.userId] ?
@@ -38,7 +38,7 @@ export const getLast2WeeksOrders = async () => {
 
 export const bucketOrdersByDate = async () => {
  
-    let ordersByDate = {};
+    const ordersByDate = {};
     const recentOrders = await getLast2WeeksOrders()
     recentOrders.forEach((order) => {
         const orderDate = getOrderDate(order.timestamp)

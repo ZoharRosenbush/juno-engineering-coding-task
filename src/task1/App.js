@@ -1,16 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import "./App.css";
 import ImgsNotFound from "../svgs/ImgsNotFound.svg"
-import './App.css';
 import ImageCarousel from "./ImageCarousel";
 import { fetchImages } from "../api"
 
 function App() {
 
   const [imgs, setImgs] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+  const isFirstRender = useRef(true)
 
   useEffect(() => {
     getImgs()
   }, [])
+
+  useEffect(() => {
+    if (isFirstRender.current){
+      isFirstRender.current = false
+      return
+    } 
+    setLoading(false)
+  }, [imgs])
 
   async function getImgs() {
     const imgs = await fetchImages()
@@ -25,7 +35,7 @@ function App() {
           <img src={ImgsNotFound} alt="Your browser does not support SVG" />
         </div>
       </div>}
-      < ImageCarousel imgs={imgs} />
+      < ImageCarousel imgs={imgs} isLoading={isLoading} />
     </div>
   );
 }

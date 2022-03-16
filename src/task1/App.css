@@ -1,17 +1,36 @@
-div.no-results{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  
+@keyframes fade-in {
+  0% {
+    display: none;
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    display: block;
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
 
-div.no-results img{
- border-radius: 50%;
- height: 400px;
- width: 400px;  
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ 
+}
+
+/* Img carousel */
+
+div.img-container img{
+  border-radius: 15px;
+  transform: scale(1.08);
+  box-shadow: 6px 6px 6px 0px #0a0a0a4f;
+  animation: fade-in 0.5s ease-in-out 0s 1 normal ;
+}
+
+.img-container{
+  height: 400px;
+  width: 400px;
+  margin-bottom: 40px;
 }
 
 .img-carousel{
@@ -22,31 +41,86 @@ div.no-results img{
   height: 100vh;
 }
 
-.img-container{
-  height: 400px;
-  width: 400px;
-}
-
-.img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.rigth-arrow,.left-arrow{
+  position: absolute;
+  top: 43%;
+  font-size: 3rem;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .rigth-arrow{
-  position: absolute;
-  top: 50%;
   right: 150px;
-  font-size: 3rem;
-  z-index: 10;
-  cursor: pointer;
 }
 
 .left-arrow{
-  position: absolute;
-  top: 50%;
   left: 150px;
-  font-size: 3rem;
-  z-index: 10;
+}
+
+/* Img preview bar */
+
+div.img-preview img{
+  border-radius: 50%;
+}
+
+.img-preview{
+  
+  height: 40px;
+  min-width: 40px;
+  box-shadow: 0px 1px 6px #0a0a0a3d;;
+  border-radius: 50%;
   cursor: pointer;
+}
+
+.neighbor-imgs{
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: 15px;
+  width: 315px;
+  padding: 10px 9px;
+}
+
+.neighbor-imgs::-webkit-scrollbar{
+  display: none;
+}
+
+/* No imgs to show screen */
+
+div.no-results img{
+  border-radius: 50%;
+  height: 400px;
+  width: 400px;  
+}
+
+div.no-results{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Flex helpers */
+
+.flex {
+    display: flex;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.column {
+  flex-direction: column;
 }

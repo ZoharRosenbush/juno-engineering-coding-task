@@ -25,7 +25,7 @@ test("Ecommerece - bucketed orders by user", async () => {
 
 test("Ecommerece - filtered orders by limit date", async () => {
     const limitDate = Date.now() - 1209600000
-    let isFiltered = true;
+    let isFiltered;
 
     const filteredOrders = await getLast2WeeksOrders()
     isFiltered = filteredOrders.every((order) => {
